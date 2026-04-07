@@ -1,0 +1,305 @@
+/* Estilos inspirados na Netflix para página de seleção de perfis */
+
+:root {
+    --bg-color: #000; /* Fundo dark */
+    --text-color: #fff; /* Texto dark */
+    --border-color: #fff; /* Borda dark */
+}
+
+.light-mode {
+    --bg-color: #fff; /* Fundo light */
+    --text-color: #000; /* Texto light */
+    --border-color: #000; /* Borda light */
+}
+
+* {
+    margin: 0;
+    /* Remove margens padrão de todos os elementos */
+    padding: 0;
+    /* Remove preenchimentos padrão de todos os elementos */
+    box-sizing: border-box;
+    /* Include padding e border na largura/altura total */
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Fonte principal */
+    background-color: var(--bg-color);
+    /* Fundo variável */
+    color: var(--text-color);
+    /* Texto variável */
+    height: 100vh;
+    /* Altura da janela */
+    display: flex;
+    /* Usar flexbox */
+    justify-content: center;
+    /* Centraliza X */
+    align-items: center;
+    /* Centraliza Y */
+    overflow: hidden;
+    /* Esconde overflow */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+}
+
+main {
+    text-align: center;
+    /* Textos centralizados */
+    max-width: 1200px;
+    /* Limita largura */
+    width: 100%;
+    /* Ocupa 100% do container */
+    padding: 20px;
+    /* Espaço interno */
+}
+
+header h1 {
+    font-size: 3rem;
+    /* Tamanho do título */
+    margin-bottom: 50px;
+    /* Espaço inferior */
+    font-weight: 300;
+    /* Peso leve */
+}
+
+#theme-toggle {
+    position: absolute;
+    /* Posição absoluta */
+    top: 20px;
+    /* Topo */
+    right: 20px;
+    /* Direita */
+    background: transparent;
+    /* Fundo transparente */
+    color: var(--text-color);
+    /* Texto variável */
+    border: none;
+    /* Sem borda */
+    padding: 8px;
+    /* Padding compacto */
+    border-radius: 50%;
+    /* Circular */
+    cursor: pointer;
+    /* Cursor pointer */
+    font-size: 1.8rem;
+    /* Ícone grande */
+    transition: transform 0.3s ease;
+    /* Transição suave */
+}
+
+#theme-toggle:hover {
+    transform: scale(1.15);
+    /* Aumenta ao passar mouse */
+}
+
+.perfis {
+    display: flex;
+    /* Container flex */
+    justify-content: center;
+    /* Centraliza perfis */
+}
+
+.container {
+    list-style: none;
+    /* Remove bullets */
+    display: flex;
+    /* Lista em flex */
+    flex-wrap: wrap;
+    /* Quebra em várias linhas */
+    gap: 40px;
+    /* Espaço entre itens */
+    justify-content: center;
+    /* Centraliza itens */
+}
+
+.perfil {
+    display: flex;
+    /* Flex por perfil */
+    flex-direction: column;
+    /* Itens em coluna */
+    align-items: center;
+    /* Centraliza texto/imagem */
+}
+
+.perfil a {
+    text-decoration: none;
+    /* Remove sublinhado */
+    color: inherit;
+    /* Herdar cor */
+    display: flex;
+    /* Flex para conteúdo do link */
+    flex-direction: column;
+    /* Coluna */
+    align-items: center;
+    /* Centro */
+    cursor: pointer;
+    /* Mãozinha */
+    transition: transform 0.3s ease;
+    /* Animação suave */
+}
+
+.perfil a:hover {
+    transform: scale(1.1);
+    /* Aumenta ao passar mouse */
+}
+
+.perfil a img {
+    width: 150px;
+    /* Largura da imagem */
+    height: 150px;
+    /* Altura da imagem */
+    border-radius: 50%;
+    /* Círculo */
+    object-fit: cover;
+    /* Cobre contêiner sem esticar */
+    border: 3px solid transparent;
+    /* Borda invisível */
+    transition: border-color 0.3s ease;
+    /* Anima borda */
+}
+
+.perfil a:hover img {
+    border-color: var(--border-color);
+    /* Borda variável no hover */
+}
+
+.perfil a p {
+    margin-top: 10px;
+    /* Espaço acima do texto */
+    font-size: 1.2rem;
+    /* Tamanho do texto */
+    font-weight: 400;
+    /* Peso normal */
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    main {
+        padding: 16px;
+        /* Menos padding em telas menores */
+    }
+
+    .container {
+        gap: 32px;
+        /* Menos gap */
+    }
+
+    .perfil a img {
+        width: 140px;
+        /* Menor imagem */
+        height: 140px;
+        /* Menor imagem */
+    }
+
+    header h1 {
+        font-size: 2.6rem;
+        /* Fonte menor */
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        height: auto;
+        /* Altura automática */
+        min-height: 100vh;
+        /* Mínimo 100vh */
+        overflow: auto;
+        /* Scrol extra */
+        padding: 20px 0;
+        /* Espaço topo/baixo */
+    }
+
+    .container {
+        gap: 28px;
+        /* Gap intermediário */
+    }
+
+    .perfil a img {
+        width: 130px;
+        /* Reduz ainda mais */
+        height: 130px;
+        /* Reduz ainda mais */
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+        /* Fonte toque */
+        margin-bottom: 40px;
+        /* Menos margem */
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+        /* Fonte menor */
+        margin-bottom: 30px;
+        /* Menos margem */
+    }
+
+    .container {
+        gap: 20px;
+        /* Gap menor */
+        padding: 0 8px;
+        /* Espaço lateral */
+    }
+
+    .perfil a img {
+        width: 120px;
+        /* Tamanho de mobile */
+        height: 120px;
+        /* Tamanho de mobile */
+    }
+
+    .perfil a p {
+        font-size: 1rem;
+        /* Texto menor */
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        align-items: flex-start;
+        /* Alinhamento inicial para scroll */
+        padding-top: 20px;
+        /* Espaço topo */
+    }
+
+    main {
+        max-width: 100%;
+        /* Ocupa toda largura */
+        padding: 12px;
+        /* Pouco padding */
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+        /* Fonte bem menor */
+        margin-bottom: 20px;
+        /* Menos margem */
+    }
+
+    .container {
+        flex-direction: column;
+        /* Coluna para items */
+        gap: 16px;
+        /* Gap reduzido */
+    }
+
+    .perfil {
+        width: 100%;
+        /* 100% de largura */
+    }
+
+    .perfil a img {
+        width: 100px;
+        /* Imagem compacta */
+        height: 100px;
+        /* Imagem compacta */
+    }
+
+    .perfil a p {
+        font-size: 0.95rem;
+        /* Texto compacto */
+    }
+}

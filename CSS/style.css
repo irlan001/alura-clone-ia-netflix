@@ -24,7 +24,7 @@
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /* Fonte principal */
-    background-color: red;
+    background-color: var(--bg-color);
     /* Fundo variável */
     color: var(--text-color);
     /* Texto variável */
